@@ -1,0 +1,64 @@
+Sorting
+
+Insertion sort
+we pick an element, create a hole, and move the hole to the left until it is at the right position for the element
+best case: sorted array O(n)
+worst case : reverse sorted array O(n^2)
+inplace algorithm
+average case: O(n^2) but the number of comparisons and shifts << selection/bubble sort
+for(i=1;i<=n-1;i++) {
+ value =a[i];
+ hole=i;
+ while(hole>0 && a[hole-1]>value) {
+    a[hole]=a[hole-1]
+    hole=hole-1;
+   }
+   a[hole]=value;
+}
+
+Merge sort
+divide and conquer - recursive
+stable - preserves the relative order of records in the original list, but not inplace algorithm
+if we are somehow able to sort the two halves then we can merge the two sub lists into third array
+time: O(nlogn)
+space: O(nlogn) n-no of elements in each step, logn - no of steps
+merge(L,R,A)
+{
+nl=length(l); nr=length(r)
+i=0;j=0;k=0;
+while(i<nl && j<nr) {
+    if(L[i]<=R[j]){
+        a[k]=L[i] //overwriting a
+        k++;i++;
+    } else {
+        a[k]=R[j];
+        k++;j++;
+    }
+    }
+ while(i<nl) {
+    a[k]=L[i];i++;k++;
+ }
+ while(j<nr) {
+    a[k]=R[j];j++;k++;
+ }
+}
+
+mergesort(a)
+{
+    n=length(a)
+    if(n<2) return
+    mid=n/2
+    left=array of size mid
+    right=array of size n-mid
+    mergesort(left)
+    mergesort(right)
+    merge(left,right,a)
+}
+
+Quick sort
+inplace - constant extra memory, divide&conquer, recursive, not stable
+avg/best: O(nlogn)
+worst: O(n^2)
+
+
+
