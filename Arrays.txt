@@ -59,6 +59,29 @@ Quick sort
 inplace - constant extra memory, divide&conquer, recursive, not stable
 avg/best: O(nlogn)
 worst: O(n^2)
+all elements lesser than pivot are pushed to the left of the pindex
 
+int partition(a[], int start, int end)
+{
+    int pivot=a[end]
+    int pindex=start;
+    for(int i=start;i<end;i++)
+    {
+        if(a[i]<=pivot) {
+            swap(a[i], pindex)
+            pindex++;
+        }
+    }
+    swap(a[pindex],a[end])
+    return pindex;
+}
+void quickSort(a[], int start, int end)
+{
+    if(start<end) {
+        int pindex = partition(a,start,end)
+        quickSort(a,start,pindex-1)
+        quickSort(a,pindex+1, end)
+    }
+}
 
 
