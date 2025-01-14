@@ -1,0 +1,73 @@
+struct Node {
+    int data;
+    Node* link;
+}
+//TODO: confirm how node* head can be passed in other functions by value or by reference whichever required
+
+Insert a node at nth position
+void insert(int data, int n) {
+    node* temp = new Node();
+    temp->data=data;
+    temp->next=null;
+    if(n==1) {
+        temp->next = head
+        head=temp;
+        return;
+    }
+    node* temp1= head;
+    for(int i=0;i<n-2;i++)
+        temp1=temp1->next;
+    temp->next=temp1->next;
+    temp1->next=temp;
+}
+
+Reverse a ll
+node* reverse(node* head) {
+    node* temp=head;
+    node* prev=null;
+    while(temp!=null) {
+        next=temp->next;
+        temp->next=prev
+        prev=temp
+        temp=next
+    }
+    head=prev
+    return head
+}
+
+Reverse a ll using recursion
+void reverse(node* p) {
+    if(p->next==null) {
+        head=p;
+        return;
+    }
+    reverse(p->next)
+    node* q=p->next;
+    q->next=p;
+    p->next=null;
+}
+
+Doubly linkedlist
+struct node {
+    int data;
+    struct node* next;
+    struct node* prev;
+}
+node* getnewnode(int x) {
+    node* newnode = new node();
+    newnode->data=x;
+    newnode->prev=null;
+    newnode->next=null;
+    return newnode;
+}
+void insertAtHead(int x) {
+    node* newnode = getnewnode(x)
+    if(head==null) {
+        head=newnode;
+        return;
+    }
+    head->prev=newnode
+    newnode->next=head
+    head=newnode
+}
+
